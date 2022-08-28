@@ -27,8 +27,10 @@ public class smoothersail : MonoBehaviour
         angle = boat.transform.rotation.eulerAngles.y - windvector.transform.rotation.eulerAngles.y;
         Debug.Log(gameObject.transform.localEulerAngles.y);
         bool bruh = true;
+        
         if ((angle > 340) && (angle < 20))
         {
+            Debug.Log("bruh");
             Quaternion sailflip = Quaternion.identity;
             Quaternion sailstate = Quaternion.identity;
             if (bruh == true)
@@ -41,16 +43,23 @@ public class smoothersail : MonoBehaviour
            
             if (isrotating == -1)
             {
-                 gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 0.2f);
+                 gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 1f);
             }
             if (isrotating == 1)
             {
-                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, 0.2f);
+                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, 1f);
             }
 
-            sailletted = Quaternion.Euler(0f, 270f, 0f);
+            if (gameObject.transform.localRotation == sailflip)
+            {
+               sailletted = Quaternion.Euler(0f, 270f, 0f);
 
-            sailpulled = Quaternion.Euler(0f, 345f, 0f);
+               sailpulled = Quaternion.Euler(0f, 345f, 0f);
+
+             
+            }
+
+
         }
 
         
