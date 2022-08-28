@@ -5,7 +5,7 @@ using UnityEngine;
 public class boatrotation : MonoBehaviour
 {
     // Start is called before the first frame update
-    float boatangle = 90;
+    float boatangle = 270;
     public GameObject boat;
     public float isrotating = 0;
     void Start()

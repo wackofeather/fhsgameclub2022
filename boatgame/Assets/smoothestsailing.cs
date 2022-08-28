@@ -31,28 +31,24 @@ public class smoothestsailing : MonoBehaviour
         bruhangle = Quaternion.Angle(boat.transform.rotation, windvector.transform.rotation);
         
 
-        if ((bruhangle < 20))
+        if ((bruhangle < 20) && (bruhangle > 0))
         {
-            //Debug.Log("bruhs");
+            Debug.Log(bruhangle);
+            
             Quaternion sailflip = Quaternion.identity;
             Quaternion sailstate = Quaternion.identity;
-            if (bruh == true)
-            {
-                sailstate = gameObject.transform.localRotation;
-                Debug.Log("shee");
-                sailflip = Quaternion.Euler(0, (2*transform.rotation.y) +180, 0);
-                
-                bruh = false;
-            }
-
+            
+            
 
             if (isrotating == -1)
             {
                 gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 1f);
+                Debug.Log("shee");
             }
             if (isrotating == 1)
             {
                 gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, 1f);
+                Debug.Log("nah");
             }
 
             if (gameObject.transform.localRotation == sailflip)
