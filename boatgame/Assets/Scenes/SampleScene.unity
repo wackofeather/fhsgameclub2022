@@ -791,7 +791,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775591471}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.72302735, z: 0, w: 0.69081944}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.94846505, y: 0.24289, z: 1.8301003}
   m_ConstrainProportionsScale: 0
@@ -799,7 +799,7 @@ Transform:
   - {fileID: 2081510880}
   m_Father: {fileID: 1208604868}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -92.61, z: 0}
 --- !u!54 &1775591476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0063a9aad84bdd44ba3e68321b41517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boat: {fileID: 0}
+  boat: {fileID: 1775591471}
   isrotating: 0
 --- !u!114 &1775591478
 MonoBehaviour:
@@ -882,6 +882,7 @@ GameObject:
   - component: {fileID: 2081510883}
   - component: {fileID: 2081510884}
   - component: {fileID: 2081510885}
+  - component: {fileID: 2081510886}
   m_Layer: 0
   m_Name: sailpivot
   m_TagString: Untagged
@@ -936,7 +937,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081510879}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b608a925f4831b54fb4aa82f0ff1a618, type: 3}
   m_Name: 
@@ -960,3 +961,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windvector: {fileID: 532369157}
   sailwindangle: 0
+--- !u!114 &2081510886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081510879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8076010589eaf554096a37ef456dfb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationchecker: {fileID: 1775591471}
+  windvector: {fileID: 532369157}
+  boat: {fileID: 1775591471}
+  sailpulled: {x: 0, y: 0.1305262, z: 0, w: 0.9914449}
+  sailletted: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}

@@ -47,10 +47,11 @@ public class smoothestsailing : MonoBehaviour
                 amogus = gameObject.transform.localEulerAngles.y;
                 if (amogus > 89.5)
                 {
-                    sailflip = Quaternion.Euler(0, 270, 0);
+                    sailflip = Quaternion.Euler(0, 271, 0);
                 }
                 else
                 {
+                    Debug.Log("WHYYYYYY");
                    sailflip = Quaternion.Euler(0, (2*(90-gameObject.transform.localEulerAngles.y)) + 180, 0);
                 }
                     
@@ -65,6 +66,7 @@ public class smoothestsailing : MonoBehaviour
             {
                 if (amogus > 55)
                 {
+                    Debug.Log("itworks!");
                     gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, 1f);
                 }
                 gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, huh);
@@ -73,7 +75,11 @@ public class smoothestsailing : MonoBehaviour
             }
             if (isrotating == 1)
             {
-                
+                if (amogus > 55)
+                {
+                    Debug.Log("itworks!!!!");
+                    gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 1f);
+                }
                 gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, huhh);
                 huhh += 0.1f;
                 Debug.Log("nah");
