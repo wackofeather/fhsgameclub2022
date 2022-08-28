@@ -14,10 +14,11 @@ public class smoothestsailing : MonoBehaviour
     public GameObject boat;
     public Quaternion sailpulled = Quaternion.Euler(0f, 15f, 0f);
     public Quaternion sailletted = Quaternion.Euler(0f, 90f, 0f);
+    Quaternion sailflip;
+    Quaternion sailstate;
     // Start is called before the first frame update
     void Start()
     {
-        isrotating = rotationchecker.GetComponent<boatrotation>().isrotating;
         bruh = true;
     }
 
@@ -29,14 +30,14 @@ public class smoothestsailing : MonoBehaviour
 
         angle = boat.transform.rotation.eulerAngles.y - windvector.transform.rotation.eulerAngles.y;
         bruhangle = Quaternion.Angle(boat.transform.rotation, windvector.transform.rotation);
-        
+        isrotating = rotationchecker.GetComponent<boatrotation>().isrotating;
 
         if ((bruhangle < 20) && (bruhangle > 0))
         {
-            Debug.Log(isrotating);
+            
+            //se
 
-            Quaternion sailflip = Quaternion.identity;
-            Quaternion sailstate = Quaternion.identity;
+            
             
             if (bruh == true)
             {
@@ -52,12 +53,12 @@ public class smoothestsailing : MonoBehaviour
 
             if (isrotating == -1)
             {
-                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 1f);
+                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, 0.2f);
                 Debug.Log("shee");
             }
             if (isrotating == 1)
             {
-                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, 1f);
+                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 1f);
                 Debug.Log("nah");
             }
 
