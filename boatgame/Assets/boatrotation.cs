@@ -16,9 +16,9 @@ public class boatrotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isrotating = 0;
-        gameObject.transform.rotation = Quaternion.Euler(0f, boatangle, 0f);
         
+        gameObject.transform.rotation = Quaternion.Euler(0f, boatangle, 0f);
+        isrotating = 0;
         if (Input.GetMouseButton(0))
         {
             boatangle += 0.1f;
@@ -30,7 +30,6 @@ public class boatrotation : MonoBehaviour
             isrotating = -1;
         }
 
-        //Debug.Log(isrotating);
         
         
     }

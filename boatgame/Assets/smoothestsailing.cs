@@ -33,8 +33,8 @@ public class smoothestsailing : MonoBehaviour
 
         if ((bruhangle < 20) && (bruhangle > 0))
         {
-           
-            
+            Debug.Log(isrotating);
+
             Quaternion sailflip = Quaternion.identity;
             Quaternion sailstate = Quaternion.identity;
             
@@ -48,7 +48,7 @@ public class smoothestsailing : MonoBehaviour
                 bruh = false;
 
             }
-            Debug.Log(isrotating);
+            
 
             if (isrotating == -1)
             {
