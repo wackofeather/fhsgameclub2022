@@ -16,6 +16,7 @@ public class smoothestsailing : MonoBehaviour
     public Quaternion sailletted = Quaternion.Euler(0f, 90f, 0f);
     Quaternion sailflip;
     Quaternion sailstate;
+    float amogus;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,31 +44,51 @@ public class smoothestsailing : MonoBehaviour
             {
 
                 sailstate = gameObject.transform.localRotation;
-
-                sailflip = Quaternion.Euler(0, 315, 0);
+                amogus = gameObject.transform.localEulerAngles.y;
+                if (amogus > 89.5)
+                {
+                    sailflip = Quaternion.Euler(0, 270, 0);
+                }
+                else
+                {
+                   sailflip = Quaternion.Euler(0, (2*(90-gameObject.transform.localEulerAngles.y)) + 180, 0);
+                }
+                    
 
                 bruh = false;
 
             }
             
-
+            float huh = 0.2f;
+            float huhh = 0.2f;
             if (isrotating == -1)
             {
-                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, 0.2f);
+                if (amogus > 55)
+                {
+                    gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, 1f);
+                }
+                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, huh);
+                huh += 0.1f;
                 Debug.Log("shee");
             }
             if (isrotating == 1)
             {
-                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 0.2f);
+                
+                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, huhh);
+                huhh += 0.1f;
                 Debug.Log("nah");
             }
+            
+            
+            
 
             if (gameObject.transform.localRotation == sailflip)
             {
                 sailletted = Quaternion.Euler(0f, 270f, 0f);
 
                 sailpulled = Quaternion.Euler(0f, 345f, 0f);
-
+                huh = 0.2f;
+                huhh = 0.2f;
                 bruh = true;
             }
 
