@@ -7,7 +7,7 @@ public class boatrotation : MonoBehaviour
     // Start is called before the first frame update
     float boatangle = 270;
     public GameObject boat;
-    public float isrotating = 0;
+    public float isrotating;
     void Start()
     {
         
@@ -16,6 +16,7 @@ public class boatrotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isrotating = 0;
         gameObject.transform.rotation = Quaternion.Euler(0f, boatangle, 0f);
         
         if (Input.GetMouseButton(0))
