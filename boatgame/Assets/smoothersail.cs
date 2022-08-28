@@ -25,44 +25,29 @@ public class smoothersail : MonoBehaviour
         float scrollDir = Input.GetAxis("Mouse ScrollWheel");
         
         angle = boat.transform.rotation.eulerAngles.y - windvector.transform.rotation.eulerAngles.y;
-        Debug.Log(gameObject.transform.localEulerAngles.y);
-        bool bruh = true;
-        
-        if ((angle > 340) && (angle < 20))
+
+        if ((angle > 0) && (angle < 10))
         {
-            Debug.Log("bruh");
-            Quaternion sailflip = Quaternion.identity;
-            Quaternion sailstate = Quaternion.identity;
-            if (bruh == true)
-            {
-               sailflip = Quaternion.Inverse(gameObject.transform.localRotation);
-               sailstate = gameObject.transform.localRotation;
-                bruh = false;
-            }
+            Quaternion sailflip = Quaternion.Euler(0, 315, 0);
 
-           
-            if (isrotating == -1)
-            {
-                 gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 1f);
-            }
-            if (isrotating == 1)
-            {
-                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailstate, 1f);
-            }
+            gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 1f);
 
-            if (gameObject.transform.localRotation == sailflip)
-            {
-               sailletted = Quaternion.Euler(0f, 270f, 0f);
+            sailletted = Quaternion.Euler(0f, 270f, 0f);
 
-               sailpulled = Quaternion.Euler(0f, 345f, 0f);
-
-             
-            }
-
-
+            sailpulled = Quaternion.Euler(0f, 345f, 0f);
         }
 
-        
+        if ((angle > 350) && (angle < 360))
+        {
+            Quaternion sailflip = Quaternion.Euler(0, 45, 0);
+
+            gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 0.5f);
+
+            sailletted = Quaternion.Euler(0f, 90f, 0f);
+
+            sailpulled = Quaternion.Euler(0f, 15f, 0f);
+        }
+
         if (scrollDir > 0)
         {
             transform.localRotation = Quaternion.RotateTowards(transform.localRotation, sailletted, 2000f * Time.deltaTime);

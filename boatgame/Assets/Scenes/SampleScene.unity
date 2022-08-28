@@ -204,8 +204,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532369157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.94846505, y: 0.24289, z: 1.8301003}
+  m_LocalPosition: {x: -0.0000009536743, y: 0, z: 0}
+  m_LocalScale: {x: 0.94846505, y: 0.24288999, z: 1.8301002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1208604868}
@@ -828,6 +828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0063a9aad84bdd44ba3e68321b41517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boat: {fileID: 0}
+  isrotating: 0
 --- !u!114 &1775591478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,6 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b608a925f4831b54fb4aa82f0ff1a618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationchecker: {fileID: 1775591471}
   windvector: {fileID: 532369157}
   boat: {fileID: 1775591471}
   sailpulled: {x: 0, y: 0.1305262, z: 0, w: 0.9914449}

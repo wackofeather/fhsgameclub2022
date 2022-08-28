@@ -23,7 +23,7 @@ public class randomwind : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(new Vector3(0, windangle, 0));
         float windrotation = gameObject.transform.rotation.eulerAngles.y;
-        Debug.Log(windangle);
-        Debug.Log(windrotation);
+        //Debug.Log(windangle);
+        //Debug.Log(windrotation);
     }
 }
