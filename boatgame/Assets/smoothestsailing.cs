@@ -58,7 +58,7 @@ public class smoothestsailing : MonoBehaviour
             }
             if (isrotating == 1)
             {
-                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 1f);
+                gameObject.transform.localRotation = Quaternion.RotateTowards(gameObject.transform.localRotation, sailflip, 0.2f);
                 Debug.Log("nah");
             }
 
