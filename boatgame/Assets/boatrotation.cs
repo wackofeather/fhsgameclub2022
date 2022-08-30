@@ -8,90 +8,26 @@ public class boatrotation : MonoBehaviour
     float boatangle = 270;
     public GameObject boat;
     public float isrotating;
-    bool rotatespeed;
-    bool fardshid;
-    float rotatingspeed;
-    void Start()
-    {
-        rotatespeed = false;
-        fardshid = false;
-    }
 
-    // Update is called once per frame
     void Update()
     {
-       if (isrotating == 0)
-        {
-            rotatespeed = false;
-            fardshid=false;
-        }
         gameObject.transform.rotation = Quaternion.Euler(0f, boatangle, 0f);
-        
-        
-        
+        isrotating = 0;
         if (Input.GetMouseButton(0))
         {
-            rotatespeed = true;
-            float rotatingspeed = 0.1f;
-            if (rotatespeed == true)
-            {
+            boatangle += .05f;
 
-                if (fardshid == false)
-                {
-                    rotatingspeed = 0.1f;
-                }
-                fardshid = true;
-                if (fardshid == true)
-                {
-                  boatangle += rotatingspeed;
-                if (rotatingspeed < 100000f)
-                {
-                    Debug.Log(rotatingspeed);
-                    rotatingspeed += 1;
-                }
-                }
-                
-            }
-            
             isrotating = 1;
         }
         if (Input.GetMouseButton(1))
         {
-            rotatespeed = true;
-            if (rotatespeed == true)
-            {
-                if (fardshid == false)
-                {
-                    rotatingspeed = 0.1f;
-                }
-                
-                fardshid = true;
-                if (fardshid == true)
-                {
-                   boatangle -= rotatingspeed;
-                   if (rotatingspeed > -100000f)
-                   {
-                    Debug.Log(rotatingspeed);
-                    rotatingspeed -= 1;
-                   }
-                }
-                
-            }
+            boatangle -= .05f;
 
-            
-            
             isrotating = -1;
         }
-
-        if ((Input.GetMouseButton(1) == false))
-        {
-            if  (Input.GetMouseButton(0) == false)
-            { 
-               Debug.Log("sheeeeeeeeeeeeeeeeeeeeeeeee");
-            }
-                
- 
-        }
-        
     }
+
+
+
 }
+
