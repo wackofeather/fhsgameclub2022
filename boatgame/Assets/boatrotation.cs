@@ -10,6 +10,7 @@ public class boatrotation : MonoBehaviour
     public float isrotating;
     bool rotatespeed;
     bool fardshid;
+    float rotatingspeed;
     void Start()
     {
         rotatespeed = false;
@@ -25,14 +26,20 @@ public class boatrotation : MonoBehaviour
             fardshid=false;
         }
         gameObject.transform.rotation = Quaternion.Euler(0f, boatangle, 0f);
-        isrotating = 0;
+        
+        
+        
         if (Input.GetMouseButton(0))
         {
             rotatespeed = true;
             float rotatingspeed = 0.1f;
             if (rotatespeed == true)
             {
-                
+
+                if (fardshid == false)
+                {
+                    rotatingspeed = 0.1f;
+                }
                 fardshid = true;
                 if (fardshid == true)
                 {
@@ -40,7 +47,7 @@ public class boatrotation : MonoBehaviour
                 if (rotatingspeed < 100000f)
                 {
                     Debug.Log(rotatingspeed);
-                    rotatingspeed += 1f;
+                    rotatingspeed += 1;
                 }
                 }
                 
@@ -53,7 +60,11 @@ public class boatrotation : MonoBehaviour
             rotatespeed = true;
             if (rotatespeed == true)
             {
-                float rotatingspeed = 0.1f;
+                if (fardshid == false)
+                {
+                    rotatingspeed = 0.1f;
+                }
+                
                 fardshid = true;
                 if (fardshid == true)
                 {
@@ -61,7 +72,7 @@ public class boatrotation : MonoBehaviour
                    if (rotatingspeed > -100000f)
                    {
                     Debug.Log(rotatingspeed);
-                    rotatingspeed -= 1f;
+                    rotatingspeed -= 1;
                    }
                 }
                 
@@ -72,7 +83,15 @@ public class boatrotation : MonoBehaviour
             isrotating = -1;
         }
 
-        
+        if ((Input.GetMouseButton(1) == false))
+        {
+            if  (Input.GetMouseButton(0) == false)
+            { 
+               Debug.Log("sheeeeeeeeeeeeeeeeeeeeeeeee");
+            }
+                
+ 
+        }
         
     }
 }
