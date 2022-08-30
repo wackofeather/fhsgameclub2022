@@ -8,25 +8,48 @@ public class boatrotation : MonoBehaviour
     float boatangle = 270;
     public GameObject boat;
     public float isrotating;
+    bool easerotate;
     void Start()
     {
-        
+        easerotate = false; 
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+       if (isrotating == 0)
+        {
+            easerotate = false;
+        }
         gameObject.transform.rotation = Quaternion.Euler(0f, boatangle, 0f);
         isrotating = 0;
         if (Input.GetMouseButton(0))
         {
-            boatangle += 0.1f;
+            easerotate=true;
+            if (easerotate == true)
+            {
+                float startrotate = 0.1f;
+               boatangle += startrotate;
+                if (startrotate < 0.3f)
+                {
+                    startrotate += 0.01f;
+                }
+            }
+            
             isrotating = 1;
         }
         if (Input.GetMouseButton(1))
         {
-            boatangle -= 0.1f;
+            easerotate = true;
+            if (easerotate == true)
+            {
+                float startrotate = 0.1f;
+                boatangle -= startrotate;
+                if (startrotate < 0.3f)
+                {
+                    startrotate += 0.01f;
+                }
+            }
             isrotating = -1;
         }
 
