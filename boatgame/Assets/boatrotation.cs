@@ -31,9 +31,9 @@ public class boatrotation : MonoBehaviour
             {
                 float rotatingspeed = 0.1f;
                 boatangle += rotatingspeed;
-                if (rotatingspeed < 10f)
+                if (rotatingspeed < 10000f)
                 {
-                    rotatingspeed += 0.01f * Time.deltaTime;
+                    rotatingspeed += 1f * Time.deltaTime;
                 }
             }
             
@@ -46,9 +46,9 @@ public class boatrotation : MonoBehaviour
             {
                 float rotatingspeed = 0.1f;
                 boatangle -= rotatingspeed;
-                if (rotatingspeed > -10f)
+                if (rotatingspeed > -10000f)
                 {
-                    rotatingspeed -= 0.01f * Time.deltaTime;
+                    rotatingspeed -= 1f * Time.deltaTime;
                 }
             }
 
