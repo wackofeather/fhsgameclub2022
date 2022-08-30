@@ -9,10 +9,11 @@ public class boatrotation : MonoBehaviour
     public GameObject boat;
     public float isrotating;
     bool rotatespeed;
-    
+    bool fardshid;
     void Start()
     {
         rotatespeed = false;
+        fardshid = false;
     }
 
     // Update is called once per frame
@@ -21,20 +22,28 @@ public class boatrotation : MonoBehaviour
        if (isrotating == 0)
         {
             rotatespeed = false;
+            fardshid=false;
         }
         gameObject.transform.rotation = Quaternion.Euler(0f, boatangle, 0f);
         isrotating = 0;
         if (Input.GetMouseButton(0))
         {
             rotatespeed = true;
+            float rotatingspeed = 0.1f;
             if (rotatespeed == true)
             {
-                float rotatingspeed = 0.1f;
-                boatangle += rotatingspeed;
-                if (rotatingspeed < 10000f)
+                
+                fardshid = true;
+                if (fardshid == true)
                 {
-                    rotatingspeed += 1f * Time.deltaTime;
+                  boatangle += rotatingspeed;
+                if (rotatingspeed < 100000f)
+                {
+                    Debug.Log(rotatingspeed);
+                    rotatingspeed += 1f;
                 }
+                }
+                
             }
             
             isrotating = 1;
@@ -45,11 +54,17 @@ public class boatrotation : MonoBehaviour
             if (rotatespeed == true)
             {
                 float rotatingspeed = 0.1f;
-                boatangle -= rotatingspeed;
-                if (rotatingspeed > -10000f)
+                fardshid = true;
+                if (fardshid == true)
                 {
-                    rotatingspeed -= 1f * Time.deltaTime;
+                   boatangle -= rotatingspeed;
+                   if (rotatingspeed > -100000f)
+                   {
+                    Debug.Log(rotatingspeed);
+                    rotatingspeed -= 1f;
+                   }
                 }
+                
             }
 
             
