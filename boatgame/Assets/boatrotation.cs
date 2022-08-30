@@ -8,10 +8,11 @@ public class boatrotation : MonoBehaviour
     float boatangle = 270;
     public GameObject boat;
     public float isrotating;
-    bool easerotate;
+    bool rotatespeed;
+    
     void Start()
     {
-        easerotate = false; 
+        rotatespeed = false;
     }
 
     // Update is called once per frame
@@ -19,20 +20,20 @@ public class boatrotation : MonoBehaviour
     {
        if (isrotating == 0)
         {
-            easerotate = false;
+            rotatespeed = false;
         }
         gameObject.transform.rotation = Quaternion.Euler(0f, boatangle, 0f);
         isrotating = 0;
         if (Input.GetMouseButton(0))
         {
-            easerotate=true;
-            if (easerotate == true)
+            rotatespeed = true;
+            if (rotatespeed == true)
             {
-                float startrotate = 0.1f;
-               boatangle += startrotate;
-                if (startrotate < 01f)
+                float rotatingspeed = 0.1f;
+                boatangle += rotatingspeed;
+                if (rotatingspeed < 1f)
                 {
-                    startrotate += 0.01f;
+                    rotatingspeed += 0.1f * Time.deltaTime;
                 }
             }
             
@@ -40,16 +41,19 @@ public class boatrotation : MonoBehaviour
         }
         if (Input.GetMouseButton(1))
         {
-            easerotate = true;
-            if (easerotate == true)
+            rotatespeed = true;
+            if (rotatespeed == true)
             {
-                float startrotate = 1f;
-                boatangle -= startrotate;
-                if (startrotate < 0.3f)
+                float rotatingspeed = 0.1f;
+                boatangle -= rotatingspeed;
+                if (rotatingspeed > -1f)
                 {
-                    startrotate += 0.01f;
+                    rotatingspeed -= 0.1f * Time.deltaTime;
                 }
             }
+
+            
+            
             isrotating = -1;
         }
 
