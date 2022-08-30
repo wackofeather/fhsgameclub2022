@@ -30,7 +30,7 @@ public class boatrotation : MonoBehaviour
             {
                 float startrotate = 0.1f;
                boatangle += startrotate;
-                if (startrotate < 0.3f)
+                if (startrotate < 01f)
                 {
                     startrotate += 0.01f;
                 }
@@ -43,7 +43,7 @@ public class boatrotation : MonoBehaviour
             easerotate = true;
             if (easerotate == true)
             {
-                float startrotate = 0.1f;
+                float startrotate = 1f;
                 boatangle -= startrotate;
                 if (startrotate < 0.3f)
                 {
